@@ -1,15 +1,21 @@
 import {combineReducers} from 'redux';
 
-import loadingReducer from './loadingReducer';
-import imagesReducer from './imagesReducer';
-import errorReducer from './errorReducer';
-import saveTestReducer from './saveTestReducer';
+
+import signupReducer from './signupReducer';
+import saveUserReducer from './saveUserReducer';
+import loginUserReducer from './loginReducer';
+import getAllUserReducer from './getAllUserReducer';
+import allUserListReducer from './allUserListReducer';
+import deleteUserReducer from './deleteUserReducer';
 
 const rootReducer = combineReducers({
-    isLoading: loadingReducer,
-    images:    imagesReducer,
-    error:     errorReducer,
-    saveTest:  saveTestReducer,
+    
+    signup:    signupReducer,
+    saveUser:  saveUserReducer,
+    login:     loginUserReducer,
+    getAllUser:getAllUserReducer,
+    allUserList:allUserListReducer,
+    deleteUser: deleteUserReducer,
 })
 
 export default rootReducer;

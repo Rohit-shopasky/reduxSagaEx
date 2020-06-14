@@ -2,25 +2,29 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const cors = require("cors");
+const mongoose = require("mongoose");
 app.use(cors());
 app.use(bodyParser.json());
-
-//support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
+require('./src/route')(app);
 
 
 app.get("/",(req,res)=>{
-
-    let data = [1,2,3,4,5];
-    res.send({status:true,data:data});
-
+   res.send("Hello");
 })
 
-app.post("/submit",(req,res)=>{
-    console.log(req.body);
-    //let data = req.body.data;
-    res.send(req.body);
 
-})
-
-app.listen("3001");
+var port = process.env.PORT || 3001;
+app.use(cors());
+mongoose
+  .connect(
+    "mongodb+srv://root:root@cluster0-hg20y.mongodb.net/test?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    app.listen(port, () => {
+      console.log("running with ", port);
+    });
+  })
+  .catch(err => {
+    console.log(err);
+  });

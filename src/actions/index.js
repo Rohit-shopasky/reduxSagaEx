@@ -1,31 +1,40 @@
-import {IMAGES} from '../constants/index';
+import {ACT} from '../constants/index';
 
 
-const loadImages = (data) =>({
-    type:IMAGES.LOAD,
+
+
+const signupUserAction = (data) =>({
+    type:ACT.SIGNUP_USER,
     data
 })
 
-const setImages = (images) =>({
-    type:IMAGES.LOAD_SUCCESS,
-    images
-})
-
-const setError = (error) =>({
-    type:IMAGES.LOAD_FAIL,
-    error
-})
-
-const testAction = (data) =>({
-    type:IMAGES.TEST,
+const saveUserAction = (data) =>({
+    type:ACT.SAVE_USER,
     data
 })
 
-const saveTestAction = (data) =>({
-    type:IMAGES.SAVE_TEST,
+const loginUserAction = (data)=>({
+    type:ACT.LOGIN_USER,
+    data
+})
+
+const getAllUserAction = (data)=>({
+    type:ACT.GET_ALL_USER,
     data
 })
 
 
+const allUserListAction = (data)=>({
+    type:ACT.ALL_USER_LIST,
+    data
+})
 
-export {loadImages,setImages,setError,testAction,saveTestAction};
+const deleteUserAction = (data)=>({
+    type:ACT.DELETE_USER_ACTION,
+    data
+})
+
+
+
+
+export {signupUserAction,saveUserAction,loginUserAction,getAllUserAction,allUserListAction,deleteUserAction};
